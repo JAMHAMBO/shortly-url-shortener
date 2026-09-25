@@ -1,0 +1,16 @@
+.Shortly-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 2.5rem;
+}
+
+.Shortly-logo img {
+    width: 60px;
+    height: 60px;
+}
+
+.Shortly-logo span {
+    font-size: 1.5rem;
+}

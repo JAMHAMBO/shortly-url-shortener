@@ -1,0 +1,138 @@
+.overview {
+	width: min(88%, 1130px);
+	margin: 0 auto;
+	padding: 46px 0 40px;
+	color: #172033;
+}
+
+.overview-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 24px;
+}
+
+.overview-header h1 {
+	font-size: 32px;
+	line-height: 1.2;
+}
+
+.overview-header p {
+	margin-top: 12px;
+	color: #667085;
+	font-size: 16px;
+}
+
+.shorten-button {
+	display: inline-flex;
+	align-items: center;
+	gap: 8px;
+	padding: 12px 18px;
+	border: 0;
+	border-radius: 9px;
+	background: #1976d2;
+	color: #ffffff;
+	font-size: 15px;
+	font-weight: 700;
+	box-shadow: 0 6px 12px rgba(25, 118, 210, 0.18);
+	cursor: pointer;
+}
+
+.shorten-button:hover {
+	background: #1565b3;
+}
+
+.overview-container {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 18px;
+	margin-top: 30px;
+}
+
+.overview-card {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	min-height: 120px;
+	box-sizing: border-box;
+	padding: 24px 22px;
+	border: 1px solid #e4e7ec;
+	border-radius: 12px;
+	background: #ffffff;
+	box-shadow: 0 2px 5px rgba(16, 24, 40, 0.03);
+}
+
+.overview-card p {
+	color: #667085;
+	font-size: 15px;
+}
+
+.overview-card span {
+	display: block;
+	margin-top: 10px;
+	color: #101828;
+	font-size: 30px;
+	font-weight: 700;
+}
+
+.overview-icon {
+	display: grid;
+	place-items: center;
+	width: 40px;
+	height: 40px;
+	border-radius: 11px;
+	background: #eaf3ff;
+	color: #1976d2;
+}
+
+@media (max-width: 700px) {
+	.overview {
+		width: calc(100% - 28px);
+		padding: 30px 0;
+	}
+
+	.overview-header {
+		align-items: flex-start;
+		flex-direction: column;
+	}
+
+	.overview-header h1 {
+		font-size: 27px;
+	}
+
+	.overview-container {
+		grid-template-columns: 1fr;
+		gap: 12px;
+		margin-top: 24px;
+	}
+
+	.shorten-button {
+		width: 100%;
+		justify-content: center;
+	}
+}
+
+@media (max-width: 450px) {
+	.overview {
+		width: calc(100% - 24px);
+		padding-top: 24px;
+	}
+
+	.overview-header h1 {
+		font-size: 24px;
+	}
+
+	.overview-header p {
+		margin-top: 8px;
+		font-size: 14px;
+	}
+
+	.overview-card {
+		min-height: 105px;
+		padding: 18px;
+	}
+
+	.overview-card span {
+		font-size: 26px;
+	}
+}

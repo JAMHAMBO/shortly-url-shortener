@@ -1,0 +1,222 @@
+.url-shortener-container {
+	width: min(90%, 830px);
+	margin: 30px auto;
+	overflow: hidden;
+	border: 1px solid #e4e7ec;
+	border-radius: 18px;
+	background: #ffffff;
+	color: #172033;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.277);
+}
+
+.url-input {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) auto;
+	gap: 10px;
+	padding: 28px 30px 36px;
+}
+
+.url-input input:focus, .url-output input:focus{
+    outline: none;
+}
+
+.url-input span {
+	grid-column: 1 / -1;
+	font-size: 23px;
+	font-weight: bold;
+}
+
+.url-input input,
+.url-output input {
+	min-width: 0;
+	padding: 15px;
+	border: 1px solid #d0d5dd;
+	border-radius: 11px;
+	font-size: 16px;
+}
+
+.url-input button {
+	padding: 0 24px;
+	border: 0;
+	border-radius: 11px;
+	background: #1976D2;
+	color: white;
+	font-size: 15px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.url-output {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) auto;
+	gap: 10px;
+	padding: 26px 30px 16px;
+	border-top: 1px solid #eaecf0;
+}
+
+.url-output h2 {
+	grid-column: 1 / -1;
+	margin: 0 0 4px;
+	font-size: 23px;
+}
+
+.url-output input {
+	color: #1976D2;
+	font-weight: bold;
+}
+
+.url-output button,
+.url-actions button {
+	border: 1px solid #d0d5dd;
+	border-radius: 8px;
+	background: #f7f8fc;
+	color: #344054;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.url-output button {
+	padding: 0 18px;
+}
+
+.copy-button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 7px;
+}
+
+.copy-button svg {
+	width: 16px;
+	height: 16px;
+	fill: none;
+	stroke: currentColor;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 1.7;
+}
+
+.url-actions {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	padding: 0 30px 26px;
+}
+
+.url-actions span {
+	color: #008a45;
+	font-size: 13px;
+}
+
+.ready-message {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+}
+
+.ready-message svg {
+	width: 16px;
+	height: 16px;
+	fill: none;
+	stroke: currentColor;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-width: 1.8;
+}
+
+.url-actions button {
+	padding: 9px 14px;    
+	display: block;
+    margin-left: auto;
+}
+
+@media (max-width: 600px) {
+	.url-input,
+	.url-output {
+		grid-template-columns: 1fr;
+		padding: 22px 18px;
+	}
+
+	.url-input button {
+		min-height: 48px;
+	}
+
+	.url-output h2 {
+		font-size: 20px;
+	}
+
+	.url-output button {
+		min-height: 44px;
+	}
+
+	.url-actions {
+		align-items: flex-start;
+		flex-direction: column;
+		padding: 0 18px 22px;
+	}
+}
+
+@media (max-width: 450px) {
+	.url-shortener-container {
+		width: calc(100% - 24px);
+		margin: 24px auto;
+		border-radius: 14px;
+	}
+
+	.url-input {
+		gap: 8px;
+		padding: 18px 14px 28px;
+	}
+
+	.url-input span {
+		font-size: 18px;
+	}
+
+	.url-input input,
+	.url-output input {
+		width: 100%;
+		box-sizing: border-box;
+		padding: 13px 12px;
+		font-size: 14px;
+	}
+
+	.url-input button {
+		width: 100%;
+		min-height: 44px;
+		padding: 10px;
+		font-size: 14px;
+	}
+
+	.url-output {
+		grid-template-columns: minmax(0, 1fr) auto;
+		gap: 8px;
+		padding: 20px 14px 12px;
+	}
+
+	.url-output h2 {
+		margin-bottom: 2px;
+		font-size: 18px;
+	}
+
+	.url-output button {
+		min-height: 44px;
+		padding: 0 12px;
+		font-size: 13px;
+	}
+
+	.url-actions {
+		align-items: stretch;
+		gap: 12px;
+		padding: 0 14px 18px;
+	}
+
+	.url-actions span {
+		font-size: 12px;
+	}
+
+	.url-actions button {
+		min-height: 42px;
+		padding: 9px 12px;
+	}
+}   
