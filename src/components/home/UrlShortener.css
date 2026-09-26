@@ -6,7 +6,7 @@
 	border-radius: 18px;
 	background: #ffffff;
 	color: #172033;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.277);
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.277);
 }
 
 .url-input {
@@ -16,8 +16,9 @@
 	padding: 28px 30px 36px;
 }
 
-.url-input input:focus, .url-output input:focus{
-    outline: none;
+.url-input input:focus,
+.url-output input:focus {
+	outline: none;
 }
 
 .url-input span {
@@ -63,6 +64,7 @@
 .url-output input {
 	color: #1976D2;
 	font-weight: bold;
+	cursor: pointer;
 }
 
 .url-output button,
@@ -126,12 +128,13 @@
 }
 
 .url-actions button {
-	padding: 9px 14px;    
+	padding: 9px 14px;
 	display: block;
-    margin-left: auto;
+	margin-left: auto;
 }
 
 @media (max-width: 600px) {
+
 	.url-input,
 	.url-output {
 		grid-template-columns: 1fr;
@@ -219,4 +222,4 @@
 		min-height: 42px;
 		padding: 9px 12px;
 	}
-}   
+}

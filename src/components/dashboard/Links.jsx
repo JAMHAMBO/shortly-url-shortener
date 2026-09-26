@@ -4,6 +4,7 @@ import { Check, Copy, Power, Trash2 } from 'lucide-react'
 
 function Links({ links, setLinks }) {
     const [copiedId, setCopiedId] = useState(null)
+    const [pendingDeleteId, setPendingDeleteId] = useState(null)
 
     const copyLink = async (link) => {
         const shortUrl = `${import.meta.env.VITE_API_URL}/${link.shortCode}`
@@ -71,6 +72,7 @@ function Links({ links, setLinks }) {
             setLinks((currentLinks) =>
                 currentLinks.filter((link) => link._id !== id)
             )
+            setPendingDeleteId(null)
 
         } catch (error) {
             console.error("Delete failed:", error)
@@ -112,10 +114,22 @@ function Links({ links, setLinks }) {
                                             {copiedId === link._id ? <Check size={16} /> : <Copy size={16} />}
                                             {copiedId === link._id ? 'Copied' : 'Copy'}
                                         </button>
-                                        <button className="delete-action" type="button" onClick={() => deleteLink(link._id)}>
-                                            <Trash2 size={16} />
-                                            Delete
-                                        </button>
+                                        {pendingDeleteId === link._id ? (
+                                            <>
+                                                <button className="confirm-delete-action" type="button" onClick={() => deleteLink(link._id)}>
+                                                    <Trash2 size={16} />
+                                                    Confirm Delete
+                                                </button>
+                                                <button className="cancel-delete-action" type="button" onClick={() => setPendingDeleteId(null)}>
+                                                    Cancel
+                                                </button>
+                                            </>
+                                        ) : (
+                                            <button className="delete-action" type="button" onClick={() => setPendingDeleteId(link._id)}>
+                                                <Trash2 size={16} />
+                                                Delete
+                                            </button>
+                                        )}
                                         <button
                                             className={link.active ? 'deactivate-action' : 'activate-action'}
                                             type="button"

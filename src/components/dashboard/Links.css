@@ -128,6 +128,20 @@
     background: #fff5f5;
 }
 
+.link-actions .confirm-delete-action {
+    border-color: #c62828;
+    background: #c62828;
+    color: #ffffff;
+}
+
+.link-actions .confirm-delete-action:hover {
+    background: #a61b1b;
+}
+
+.link-actions .cancel-delete-action {
+    color: #475467;
+}
+
 .link-actions .activate-action {
     border-color: #a7dfc0;
     color: #16834d;

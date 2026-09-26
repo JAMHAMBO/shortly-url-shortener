@@ -5,10 +5,10 @@ function UrlShortener({ onCreated }) {
     const [originalUrl, setOriginalUrl] = useState('')
     const [shortUrl, setShortUrl] = useState('')
     const [copied, setCopied] = useState(false)
-    
+
     const shortenUrl = async () => {
         const token = localStorage.getItem("token");
-        
+
         const response = await fetch(`${import.meta.env.VITE_API_URL}/api/urls`, {
             method: 'POST',
             headers: {
@@ -47,6 +47,12 @@ function UrlShortener({ onCreated }) {
         window.setTimeout(() => setCopied(false), 1500)
     }
 
+    const openShortUrl = () => {
+        if (!shortUrl) return
+
+        window.open(shortUrl, "_blank", "noopener,noreferrer")
+    }
+
     return (
         <div className="url-shortener-container">
             <div className="url-input">
@@ -61,7 +67,16 @@ function UrlShortener({ onCreated }) {
 
             <div className="url-output">
                 <h2>Your shortened URL</h2>
-                <input type="text" value={shortUrl} readOnly placeholder="https://shortly.com/short-url" />
+                <input
+                    type="text"
+                    value={shortUrl}
+                    readOnly
+                    placeholder="https://shortly.com/short-url"
+                    onClick={openShortUrl}
+                    aria-label="Open shortened URL in a new tab"
+                    title={shortUrl ? "Open link in a new tab" : undefined}
+                />
+
                 <button className="copy-button" type="button" onClick={copyShortUrl} disabled={!shortUrl}>
                     <svg viewBox="0 0 24 24" aria-hidden="true">
                         <rect x="8" y="8" width="11" height="11" rx="2" />

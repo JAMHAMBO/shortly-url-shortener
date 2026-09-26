@@ -1,6 +1,6 @@
 import React from 'react'
 import './Login.css'
-import { LockKeyhole, Eye, Mail } from "lucide-react";
+import { LockKeyhole, Eye, EyeOff, Mail } from "lucide-react";
 import ShortlyLogo from '../components/ShortlyLogo'
 import { Link, useNavigate } from 'react-router-dom'
 import Footer from '../components/Footer';
@@ -10,6 +10,7 @@ import Notification from '../components/Notification';
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
     const [notification, setNotification] = useState(null);
     const navigate = useNavigate();
 
@@ -94,13 +95,21 @@ function Login() {
                             <LockKeyhole className="input-icon" aria-hidden="true" size={16} />
                             <input
                                 id="password"
-                                type="password"
+                                type={showPassword ? "text" : "password"}
                                 placeholder="Enter your password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
 
                             />
-                            <Eye className="password-toggle" aria-hidden="true" size={16} />
+                            <button
+                                className="password-toggle-button"
+                                type="button"
+                                onClick={() => setShowPassword((isVisible) => !isVisible)}
+                                aria-label={showPassword ? "Hide password" : "Show password"}
+                                aria-pressed={showPassword}
+                            >
+                                {showPassword ? <EyeOff aria-hidden="true" size={18} /> : <Eye aria-hidden="true" size={18} />}
+                            </button>
                         </div>
 
                         <button

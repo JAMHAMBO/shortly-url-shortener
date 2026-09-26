@@ -1,7 +1,7 @@
 import React from 'react'
 import ShortlyLogo from '../components/ShortlyLogo'
 import './SignUp.css'
-import { LockKeyhole, Eye, Mail, User } from "lucide-react";
+import { LockKeyhole, Eye, EyeOff, Mail, User } from "lucide-react";
 import { Link, useNavigate } from 'react-router-dom'
 import Footer from '../components/Footer';
 import Notification from '../components/Notification'
@@ -12,6 +12,8 @@ function SignUp() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
+    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const [notification, setNotification] = useState(null);
     const navigate = useNavigate();
 
@@ -102,12 +104,20 @@ function SignUp() {
                             <LockKeyhole className="signup-icon" aria-hidden="true" size={16} />
                             <input
                                 id="password"
-                                type="password"
+                                type={showPassword ? "text" : "password"}
                                 placeholder="Enter your password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                             />
-                            <Eye className="signup-icon" aria-hidden="true" size={16} />
+                            <button
+                                className="password-toggle-button"
+                                type="button"
+                                onClick={() => setShowPassword((isVisible) => !isVisible)}
+                                aria-label={showPassword ? "Hide password" : "Show password"}
+                                aria-pressed={showPassword}
+                            >
+                                {showPassword ? <EyeOff aria-hidden="true" size={16} /> : <Eye aria-hidden="true" size={16} />}
+                            </button>
                         </div>
 
                         <label htmlFor="confirm-password">Confirm Password</label>
@@ -115,12 +125,20 @@ function SignUp() {
                             <LockKeyhole className="signup-icon" aria-hidden="true" size={16} />
                             <input
                                 id="confirm-password"
-                                type="password"
+                                type={showConfirmPassword ? "text" : "password"}
                                 placeholder="Confirm your password"
                                 value={confirmPassword}
                                 onChange={(e) => setConfirmPassword(e.target.value)}
                             />
-                            <Eye className="signup-icon" aria-hidden="true" size={16} />
+                            <button
+                                className="password-toggle-button"
+                                type="button"
+                                onClick={() => setShowConfirmPassword((isVisible) => !isVisible)}
+                                aria-label={showConfirmPassword ? "Hide password" : "Show password"}
+                                aria-pressed={showConfirmPassword}
+                            >
+                                {showConfirmPassword ? <EyeOff aria-hidden="true" size={16} /> : <Eye aria-hidden="true" size={16} />}
+                            </button>
                         </div>
 
                         <button

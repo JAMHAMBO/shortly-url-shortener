@@ -93,17 +93,36 @@
 	color: #98a2b3;
 }
 
-.input-icon,
-.password-toggle {
+.input-icon {
 	color: #98a2b3;
 	font-size: 18px;
 }
 
-.password-toggle {
-	font-size: 22px;
+.password-toggle-button {
+	display: grid;
+	place-items: center;
+	width: auto;
+	height: auto;
+	margin: 0;
+	padding: 2px;
+	border: 0;
+	border-radius: 4px;
+	background: transparent;
+	color: #98a2b3;
+	cursor: pointer;
 }
 
-.login-input button {
+.password-toggle-button:hover {
+	background: #f2f4f7;
+	color: #475467;
+}
+
+.password-toggle-button:focus-visible {
+	outline: 2px solid #1976d2;
+	outline-offset: 2px;
+}
+
+.login-input > button {
 	height: 44px;
 	margin-top: 14px;
 	border: 0;
@@ -115,7 +134,7 @@
 	cursor: pointer;
 }
 
-.login-input button:hover {
+.login-input > button:hover {
 	background: #1565b3;
 }
 
@@ -174,7 +193,7 @@
 	}
 
 	.input-wrapper input,
-	.login-input button {
+	.login-input > button {
 		font-size: 14px;
 	}
 
