@@ -88,7 +88,7 @@ function Login() {
 
                         <div className="password-label">
                             <label htmlFor="password">Password</label>
-                            <a href="forgot-password">Forgot password?</a>
+                            {/* <a href="forgot-password">Forgot password?</a> */}
                         </div>
 
                         <div className="input-wrapper">

@@ -29,12 +29,13 @@
     gap: 24px;
 }
 
-.footer-sections span {
+.footer-sections a {
     color: #475467;
     cursor: pointer;
+    text-decoration: none;
 }
 
-.footer-sections span:hover {
+.footer-sections a:hover {
     color: #1976d2;
 }
 

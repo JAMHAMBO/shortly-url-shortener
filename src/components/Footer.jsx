@@ -1,4 +1,4 @@
-import React from 'react'
+import { Link } from 'react-router-dom'
 import './Footer.css'
 
 function Footer() {
@@ -11,10 +11,10 @@ function Footer() {
             </div>
 
             <div className="footer-sections">
-                <span>About</span>
-                <span>Privacy</span>
-                <span>Terms</span>
-                <span>Contact</span>
+                <Link to="/about">About</Link>
+                <Link to="/privacy">Privacy</Link>
+                <Link to="/terms">Terms</Link>
+                <Link to="/contact">Contact</Link>
             </div>
 
         </div>

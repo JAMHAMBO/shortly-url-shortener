@@ -79,12 +79,15 @@ function Links({ links, setLinks }) {
         }
     }
 
+    const pendingDeleteLink = links.find((link) => link._id === pendingDeleteId)
+
     return (
-        <section className="links-container">
-            <div className="your-links">
-                <h2>Your Links</h2>
-                <div className="number-links">{links.length} links</div>
-            </div>
+        <>
+            <section className="links-container">
+                <div className="your-links">
+                    <h2>Your Links</h2>
+                    <div className="number-links">{links.length} links</div>
+                </div>
 
             <div className="links-table-wrapper">
                 <table className="links-table">
@@ -114,22 +117,10 @@ function Links({ links, setLinks }) {
                                             {copiedId === link._id ? <Check size={16} /> : <Copy size={16} />}
                                             {copiedId === link._id ? 'Copied' : 'Copy'}
                                         </button>
-                                        {pendingDeleteId === link._id ? (
-                                            <>
-                                                <button className="confirm-delete-action" type="button" onClick={() => deleteLink(link._id)}>
-                                                    <Trash2 size={16} />
-                                                    Confirm Delete
-                                                </button>
-                                                <button className="cancel-delete-action" type="button" onClick={() => setPendingDeleteId(null)}>
-                                                    Cancel
-                                                </button>
-                                            </>
-                                        ) : (
-                                            <button className="delete-action" type="button" onClick={() => setPendingDeleteId(link._id)}>
-                                                <Trash2 size={16} />
-                                                Delete
-                                            </button>
-                                        )}
+                                        <button className="delete-action" type="button" onClick={() => setPendingDeleteId(link._id)}>
+                                            <Trash2 size={16} />
+                                            Delete
+                                        </button>
                                         <button
                                             className={link.active ? 'deactivate-action' : 'activate-action'}
                                             type="button"
@@ -145,7 +136,31 @@ function Links({ links, setLinks }) {
                     </tbody>
                 </table>
             </div>
-        </section>
+            </section>
+            {pendingDeleteLink && (
+                <div className="delete-dialog-backdrop" onClick={() => setPendingDeleteId(null)}>
+                    <div
+                        className="delete-dialog"
+                        role="dialog"
+                        aria-modal="true"
+                        aria-labelledby="delete-dialog-title"
+                        onClick={(event) => event.stopPropagation()}
+                    >
+                        <div className="delete-dialog-icon"><Trash2 size={20} /></div>
+                        <h2 id="delete-dialog-title">Delete this link?</h2>
+                        <p>This action cannot be undone.</p>
+                        <div className="delete-dialog-actions">
+                            <button type="button" className="delete-dialog-cancel" onClick={() => setPendingDeleteId(null)}>
+                                Cancel
+                            </button>
+                            <button type="button" className="delete-dialog-confirm" onClick={() => deleteLink(pendingDeleteLink._id)}>
+                                Delete link
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+        </>
     )
 }
 
