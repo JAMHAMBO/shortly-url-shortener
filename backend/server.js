@@ -27,8 +27,6 @@ mongoose.connect(process.env.MONGO_URI)
         console.log("MongoDB connection failed:", error.message);
     });
 
-app.use(express.static(path.join(__dirname, "../dist")));
-
 app.get("/api/test-auth", authMiddleware, (req, res) => {
     res.json({
         message: "Authentication successful",
