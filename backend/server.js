@@ -4,7 +4,6 @@ const authMiddleware = require("./middleware/authMiddleware");
 const app = express();
 const mongoose = require("mongoose");
 require("dotenv").config();
-const path = require("path");
 const authRoutes = require("./routes/authRoutes");
 const urlRoutes = require("./routes/urlRoutes");
 const Url = require("./models/Url");
@@ -62,8 +61,4 @@ app.get("/:shortCode", async (req, res) => {
 
         res.status(500).send("Server error");
     }
-});
-
-app.use((req, res) => {
-    res.sendFile(path.join(__dirname, "../dist", "index.html"));
 });
